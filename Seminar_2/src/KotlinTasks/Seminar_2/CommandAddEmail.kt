@@ -5,7 +5,7 @@ import KotlinTasks.Seminar_2.Command;
 class CommandAddEmail(var person: Person):Command() {
     override fun isValid():Boolean{
         val email = person.email;
-        var cnt_= 0;
+        /*var cnt_= 0;
         var cnt_pont = 0;
         //можно и замороченнее сделать проверку на маску ввода
         //но пока по совим навыкам позволю себе сделать немного попроще
@@ -17,6 +17,9 @@ class CommandAddEmail(var person: Person):Command() {
         }
         if (cnt_!=1) return false;
         if (cnt_pont<1) return false;
-        return true;
+        return true;*/
+
+        //еще вариант проверить валидность через регулярку
+        return email.matches(Regex("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"));
     }
 }
