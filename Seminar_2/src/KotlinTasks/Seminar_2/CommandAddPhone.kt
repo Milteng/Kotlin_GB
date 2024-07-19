@@ -10,15 +10,18 @@ class CommandAddPhone(var person: Person) :Command() {
         //должны быть только цифры, знак + и дефис -
 
         //если плюс где то в середине номера
-        if (phone.indexOf('+')>1) return false;
+        /*if (phone.indexOf('+')>1) return false;
 
-        val myStringNum = "0 1 2 3 4 56 7 8 9 -";
+        val myStringNum = "+ 0 1 2 3 4 5 6 7 8 9 -";
 
         for (i in 0..< phone.length){
            if (phone[i] !in myStringNum) return false;
 
         }
 
-         return true;
+         return true;*/
+
+         //еще вариант проверить валидность через регулярку
+        return phone.matches(Regex("""^\+?\d+[\d-]*${'$'}"""));
     }
 }
